@@ -1,6 +1,6 @@
 /**
- * Zbirna rang lista (Borda). Svaka lista daje pecivu na mjestu i (od 0) n − i bodova,
- * gdje je n broj svih peciva. Peciva koja korisnik nije rangirao (npr. nova) dijele
+ * Zbirna rang lista (Borda). Svaka lista daje kolaču na mjestu i (od 0) n − i bodova,
+ * gdje je n broj svih kolača. Kolači koje korisnik nije rangirao (npr. novi) dijele
  * preostala mjesta na dnu, pa dobivaju prosjek tih bodova. Bodovi se po korisniku
  * svode na 0–100, a konačni rezultat je prosjek svih predanih lista.
  */

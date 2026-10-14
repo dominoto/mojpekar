@@ -18,7 +18,7 @@ if (s) {
   const fresh = [...pastries.keys()].filter((id) => !saved.includes(id));
 
   if (!pastries.size) {
-    list.outerHTML = `<p class="muted">Još nema peciva za rangiranje.</p>`;
+    list.outerHTML = `<p class="muted">Još nema kolača za rangiranje.</p>`;
     document.getElementById("save").hidden = true;
   }
 
@@ -42,7 +42,7 @@ if (s) {
   const dirty = () => { renumber(); status.textContent = "Nespremljene promjene"; };
   renumber();
   status.textContent = mine.exists()
-    ? (fresh.length ? "Ima novih peciva — smjesti ih i spremi." : "Lista je spremljena.")
+    ? (fresh.length ? "Ima novih kolača — smjesti ih i spremi." : "Lista je spremljena.")
     : "Još nisi spremio/la svoju listu.";
 
   Sortable.create(list, {
@@ -65,7 +65,7 @@ if (s) {
       await setDoc(doc(db, "rankings", s.email), { order, name: s.name, updatedAt: serverTimestamp() });
       list.querySelectorAll(".badge").forEach((b) => b.remove());
       status.textContent = "Lista je spremljena.";
-      toast("Spremljeno! 🥐");
+      toast("Spremljeno! 🍰");
     } catch {
       toast("Spremanje nije uspjelo.", "err");
     }

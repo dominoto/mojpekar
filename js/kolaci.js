@@ -20,15 +20,15 @@ if (s) {
         <div class="grow"><strong>${esc(p.name)}</strong>${p.description ? `<small>${esc(p.description)}</small>` : ""}</div>
         <button class="btn btn-small btn-ghost" data-edit="${esc(p.id)}">Uredi</button>
         ${s.isAdmin ? `<button class="btn btn-small btn-danger" data-delete="${esc(p.id)}">Obriši</button>` : ""}
-      </li>`).join("") || `<li class="muted">Još nema peciva.</li>`;
+      </li>`).join("") || `<li class="muted">Još nema kolača.</li>`;
   }
 
   function setEditing(p) {
     editingId = p?.id ?? null;
     form.reset();
     if (p) for (const k of ["name", "description", "imageUrl"]) form.elements[k].value = p[k] || "";
-    document.getElementById("form-title").textContent = p ? `Uređivanje: ${p.name}` : "Novo pecivo";
-    document.getElementById("submit").textContent = p ? "Spremi promjene" : "Dodaj pecivo";
+    document.getElementById("form-title").textContent = p ? `Uređivanje: ${p.name}` : "Novi kolač";
+    document.getElementById("submit").textContent = p ? "Spremi promjene" : "Dodaj kolač";
     document.getElementById("cancel").hidden = !p;
     if (p) form.scrollIntoView({ behavior: "smooth" });
   }
@@ -46,7 +46,7 @@ if (s) {
     try {
       if (editingId) await updateDoc(doc(db, "pastries", editingId), data);
       else await addDoc(collection(db, "pastries"), { ...data, createdAt: serverTimestamp() });
-      toast(editingId ? "Promjene spremljene." : "Pecivo dodano! 🥨");
+      toast(editingId ? "Promjene spremljene." : "Kolač dodan! 🎂");
       setEditing(null);
       await load();
     } catch {
@@ -64,7 +64,7 @@ if (s) {
       const p = pastries.find((x) => x.id === del.dataset.delete);
       if (!confirm(`Obrisati "${p.name}"? Nestat će i iz svih rang lista.`)) return;
       await deleteDoc(doc(db, "pastries", p.id));
-      toast("Pecivo obrisano.");
+      toast("Kolač obrisan.");
       await load();
     }
   });

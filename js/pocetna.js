@@ -12,13 +12,16 @@ const pastries = pastrySnap.docs.map((d) => ({ id: d.id, ...d.data() }));
 const rankings = rankingSnap.docs.map((d) => d.data());
 const { rows, voters } = aggregate(pastries, rankings);
 
+const n = pastries.length;
+const cakes = `${n} ${n % 10 === 1 && n % 100 !== 11 ? "kolač" : "kolača"}`;
+const lists = [2, 3, 4].includes(voters % 10) && ![12, 13, 14].includes(voters % 100) ? "rang liste" : "rang lista";
 const summary = document.getElementById("summary");
 if (!pastries.length) {
-  summary.textContent = "Pekara je još prazna — dodaj prva peciva.";
+  summary.textContent = "Pekara je još prazna — dodaj prve kolače.";
 } else if (!voters) {
-  summary.textContent = `${pastries.length} peciva čeka prvu rang listu.`;
+  summary.textContent = `${cakes} čeka prvu rang listu.`;
 } else {
-  summary.textContent = `${pastries.length} peciva · ${voters} ${voters === 1 ? "rang lista" : voters < 5 ? "rang liste" : "rang lista"}`;
+  summary.textContent = `${cakes} · ${voters} ${lists}`;
 }
 
 if (voters) {

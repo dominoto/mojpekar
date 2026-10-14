@@ -9,7 +9,7 @@ service cloud.firestore {
     function userPath() { return /databases/$(database)/documents/users/$(myEmail()); }
 
     // Glavni administrator — isti e-mail kao ADMIN_EMAIL u js/firebase-config.js
-    function isSuperAdmin() { return signedIn() && myEmail() == 'tvoj.email@gmail.com'; }
+    function isSuperAdmin() { return signedIn() && myEmail() == 'zubac76@gmail.com'; }
     function isMember() { return signedIn() && exists(userPath()); }
     function isAdmin() { return isSuperAdmin() || (isMember() && get(userPath()).data.isAdmin == true); }
     function canEditPastries() {

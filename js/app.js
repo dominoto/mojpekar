@@ -23,7 +23,7 @@ export function pastryImage(p, cls = "thumb") {
   const url = safeUrl(p.imageUrl);
   return url
     ? `<img class="${cls}" src="${esc(url)}" alt="" loading="lazy">`
-    : `<span class="${cls} thumb-emoji" aria-hidden="true">🥐</span>`;
+    : `<span class="${cls} thumb-emoji" aria-hidden="true">🍰</span>`;
 }
 
 export function toast(msg, type = "ok") {
@@ -64,7 +64,7 @@ function renderHeader(s) {
     `<a href="${href}" class="${here === href ? "active" : ""}">${label}</a>`;
   const links = [link("index.html", "Rang lista")];
   if (s.isMember) links.push(link("rangiraj.html", "Moja lista"));
-  if (s.canEdit) links.push(link("peciva.html", "Peciva"));
+  if (s.canEdit) links.push(link("kolaci.html", "Kolači"));
   if (s.isAdmin) links.push(link("korisnici.html", "Korisnici"));
 
   const account = s.user

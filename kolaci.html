@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Peciva — Moj Pekar</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥐</text></svg>">
+  <title>Kolači — Moj Pekar</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
@@ -14,26 +14,26 @@
   <main>
     <section class="hero">
       <p class="eyebrow">Izlog pekare</p>
-      <h1>Peciva</h1>
+      <h1>Kolači</h1>
     </section>
     <section class="card">
-      <h2 id="form-title">Novo pecivo</h2>
+      <h2 id="form-title">Novi kolač</h2>
       <form id="pastry-form" class="form">
-        <label>Naziv <input name="name" required maxlength="80" placeholder="npr. Kroasan s čokoladom"></label>
+        <label>Naziv <input name="name" required maxlength="80" placeholder="npr. Kremšnita"></label>
         <label>Opis <textarea name="description" maxlength="500" rows="2" placeholder="Kratki opis (neobavezno)"></textarea></label>
         <label>Slika (URL) <input name="imageUrl" type="url" maxlength="500" placeholder="https://… (neobavezno)"></label>
         <div class="actions">
           <button type="button" class="btn btn-ghost" id="cancel" hidden>Odustani</button>
-          <button class="btn" type="submit" id="submit">Dodaj pecivo</button>
+          <button class="btn" type="submit" id="submit">Dodaj kolač</button>
         </div>
       </form>
     </section>
     <section class="card">
-      <h2>Sva peciva</h2>
+      <h2>Svi kolači</h2>
       <ul id="pastry-list" class="item-list"></ul>
     </section>
   </main>
   <footer>Moj Pekar · ispečeno s ljubavlju 🍞</footer>
-  <script type="module" src="js/peciva.js"></script>
+  <script type="module" src="js/kolaci.js"></script>
 </body>
 </html>
