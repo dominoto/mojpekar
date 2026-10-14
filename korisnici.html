@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Korisnici — Moj Pekar</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥐</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Naša ekipa</p>
+      <h1>Korisnici</h1>
+      <p class="lead">Dodaj Google e-mail kolege. Nakon prijave s tim računom moći će rangirati peciva.</p>
+    </section>
+    <section class="card">
+      <h2>Dodaj kolegu</h2>
+      <form id="user-form" class="form">
+        <label>Google e-mail <input name="email" type="email" required placeholder="ime.prezime@gmail.com"></label>
+        <label>Ime <input name="name" required maxlength="60" placeholder="Ime i prezime"></label>
+        <label class="check"><input type="checkbox" name="canEditPastries"> Smije dodavati i uređivati peciva</label>
+        <label class="check"><input type="checkbox" name="isAdmin"> Administrator (upravlja korisnicima)</label>
+        <div class="actions"><button class="btn" type="submit">Spremi korisnika</button></div>
+      </form>
+    </section>
+    <section class="card">
+      <h2>Svi korisnici</h2>
+      <ul id="user-list" class="item-list"></ul>
+    </section>
+  </main>
+  <footer>Moj Pekar · ispečeno s ljubavlju 🍞</footer>
+  <script type="module" src="js/korisnici.js"></script>
+</body>
+</html>
