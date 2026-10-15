@@ -21,9 +21,25 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    match /places/{id} {
+      allow read: if true;
+      allow create, update: if canEditPastries()
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 60
+        && request.resource.data.emoji is string
+        && request.resource.data.emoji.size() <= 16
+        && request.resource.data.description is string
+        && request.resource.data.description.size() <= 300;
+      allow delete: if isAdmin();
+    }
+
+    // "pastries" = jela svih mjesta (ime kolekcije ostalo od prve verzije)
     match /pastries/{id} {
       allow read: if true;
       allow create, update: if canEditPastries()
+        && request.resource.data.placeId is string
+        && request.resource.data.placeId.size() > 0
         && request.resource.data.name is string
         && request.resource.data.name.size() > 0
         && request.resource.data.name.size() <= 80
@@ -38,8 +54,10 @@ service cloud.firestore {
       allow read: if true;
       allow write: if (isMember() || isSuperAdmin())
         && email == myEmail()
-        && request.resource.data.order is list
-        && request.resource.data.order.size() <= 500;
+        && request.resource.data.get('order', []) is list
+        && request.resource.data.get('order', []).size() <= 500
+        && request.resource.data.get('orders', {}) is map
+        && request.resource.data.get('orders', {}).size() <= 100;
       allow delete: if isAdmin();
     }
   }

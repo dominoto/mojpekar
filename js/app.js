@@ -19,11 +19,11 @@ export function safeUrl(url) {
   return /^https:\/\//i.test(url || "") ? url : "";
 }
 
-export function pastryImage(p, cls = "thumb") {
+export function pastryImage(p, cls = "thumb", emoji = "🍽️") {
   const url = safeUrl(p.imageUrl);
   return url
     ? `<img class="${cls}" src="${esc(url)}" alt="" loading="lazy">`
-    : `<span class="${cls} thumb-emoji" aria-hidden="true">🍰</span>`;
+    : `<span class="${cls} thumb-emoji" aria-hidden="true">${esc(emoji)}</span>`;
 }
 
 export function toast(msg, type = "ok") {
@@ -59,12 +59,13 @@ async function loadSession() {
 }
 
 function renderHeader(s) {
-  const here = location.pathname.split("/").pop() || "index.html";
+  let here = location.pathname.split("/").pop() || "index.html";
+  if (here === "mjesto.html") here = "index.html";
   const link = (href, label) =>
     `<a href="${href}" class="${here === href ? "active" : ""}">${label}</a>`;
-  const links = [link("index.html", "Rang lista")];
-  if (s.isMember) links.push(link("rangiraj.html", "Moja lista"));
-  if (s.canEdit) links.push(link("kolaci.html", "Kolači"));
+  const links = [link("index.html", "Rang liste")];
+  if (s.isMember) links.push(link("rangiraj.html", "Moje liste"));
+  if (s.canEdit) links.push(link("uredi.html", "Uredi ponudu"));
   if (s.isAdmin) links.push(link("korisnici.html", "Korisnici"));
 
   const account = s.user

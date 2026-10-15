@@ -215,6 +215,45 @@ label.check { display: flex !important; align-items: center; gap: .5rem; font-we
   background: var(--berry); color: #fff; padding: .1rem .45rem; border-radius: 999px; vertical-align: middle;
 }
 
+/* ---------- kartice mjesta ---------- */
+.tabs { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-bottom: 1rem; }
+.tabs a {
+  text-decoration: none; font-weight: 700; color: var(--crust);
+  background: var(--paper); border: 2px solid var(--flour);
+  padding: .4rem .9rem; border-radius: 999px;
+}
+.tabs a:hover { border-color: var(--golden-soft); }
+.tabs a.active { background: var(--crust-dark); border-color: var(--crust-dark); color: var(--golden-soft); }
+
+.place-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+.place-card {
+  display: flex; flex-direction: column; text-decoration: none; color: inherit;
+  background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow);
+  border: 1px solid var(--flour); border-top: 8px solid var(--golden);
+  padding: 1.5rem; transition: transform .15s, box-shadow .15s;
+}
+.place-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(78, 45, 20, .18); }
+.place-emoji { font-size: 2.6rem; line-height: 1; margin-bottom: .5rem; }
+.place-card .desc { margin: 0 0 .5rem; }
+.meta { color: var(--muted); font-size: .9rem; margin: 0 0 .75rem; }
+.mini-top { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .25rem; font-weight: 600; }
+.more { margin-top: auto; font-weight: 700; color: var(--crust); }
+
+/* ---------- razredi (tier) ---------- */
+.tier {
+  display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 8px;
+  font-family: var(--serif); font-weight: 800; color: #fff;
+}
+.tier-S { background: #b5473a; }
+.tier-A { background: #d9822b; }
+.tier-B { background: #d9b23d; color: var(--crust-dark); }
+.tier-C { background: #9a8a5a; }
+.tier-D { background: #8a6d55; }
+
+.form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.emoji-field { width: 6rem; }
+.emoji-field input { text-align: center; font-size: 1.3rem; }
+
 /* ---------- obavijesti ---------- */
 .toast {
   position: fixed; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%);

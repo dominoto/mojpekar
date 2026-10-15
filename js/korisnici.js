@@ -16,7 +16,7 @@ if (s) {
       <li data-email="${esc(u.email)}">
         <span class="avatar">${esc(u.name.charAt(0).toUpperCase())}</span>
         <div class="grow"><strong>${esc(u.name)}</strong><small>${esc(u.email)}</small></div>
-        <label class="check"><input type="checkbox" data-field="canEditPastries" ${u.canEditPastries ? "checked" : ""}> Kolači</label>
+        <label class="check"><input type="checkbox" data-field="canEditPastries" ${u.canEditPastries ? "checked" : ""}> Uređivanje</label>
         <label class="check"><input type="checkbox" data-field="isAdmin" ${u.isAdmin ? "checked" : ""}> Admin</label>
         <button class="btn btn-small btn-danger" data-remove>Ukloni</button>
       </li>`).join("") || `<li class="muted">Još nema dodanih kolega.</li>`;

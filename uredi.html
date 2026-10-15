@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uredi ponudu — Moj Pekar</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header"></he  <main>
+    <div id="tabs"></div>
+    <section class="hero">
+      <p class="eyebrow">Izlog pekare</p>
+      <h1>Uredi ponudu</h1>
+    </section>
+    <section class="card">
+      <h2 id="place-title">Novo mjesto</h2>
+      <form id="place-form" class="form">
+        <div class="form-row">
+          <label class="emoji-field">Ikona <input name="emoji" maxlength="8" placeholder="🍽️"></label>
+          <label class="grow">Naziv <input name="name" required maxlength="60" placeholder="npr. Menza"></label>
+        </div>
+        <label>Opis <input name="description" maxlength="300" placeholder="Kratki opis (neobavezno)"></label>
+        <div class="actions">
+          <button type="button" class="btn btn-danger" id="delete-place" hidden>Obriši mjesto</button>
+          <button class="btn" type="submit" id="place-submit">Dodaj mjesto</button>
+        </div>
+      </form>
+    </section>
+    <section class="card" id="item-card" hidden>
+      <h2 id="form-title">Novo jelo</h2>
+      <form id="pastry-form" class="form">
+        <label>Naziv <input name="name" required maxlength="80" placeholder="npr. Sarma"></label>
+        <label>Opis <textarea name="description" maxlength="500" rows="2" placeholder="Kratki opis (neobavezno)"></textarea></label>
+        <label>Slika (URL) <input name="imageUrl" type="url" maxlength="500" placeholder="https://… (neobavezno)"></label>
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" id="cancel" hidden>Odustani</button>
+          <button class="btn" type="submit" id="submit">Dodaj jelo</button>
+        </div>
+      </form>
+    </section>
+    <section class="card" id="list-card" hidden>
+      <h2 id="list-title">Sva jela</h2>
+      <ul id="pastry-list" class="item-list"></ul>
+    </section>
+  </main>/main>
+  <footer>Moj Pekar · ispečeno s ljubavlju 🍞</footer>
+  <script type="module" src="js/uredi.js"></script>
+</body>
+</html>

@@ -1,15 +1,18 @@
 # Moj Pekar 🍰
 
-Rang lista kolača (cakes). A static site (GitHub Pages) with Firebase for Google login and the database.
+Rang liste for places (kolači, menza, …) and their foods. A static site (GitHub Pages) with Firebase for Google login and the database.
 
 | Page | Who |
 |---|---|
-| `index.html` – cumulative ranking | everyone, no login |
-| `rangiraj.html` – my ranking (drag & drop) | colleagues added by an admin |
-| `kolaci.html` – add/edit cakes | admins + users with the "Kolači" right |
+| `index.html` – all places with their top 3 | everyone, no login |
+| `mjesto.html?id=…` – cumulative ranking + S–D tiers for one place | everyone, no login |
+| `rangiraj.html?id=…` – my ranking for a place (drag & drop) | colleagues added by an admin |
+| `uredi.html` – add/edit places and their foods | admins + users with the "Uređivanje" right |
 | `korisnici.html` – manage users and rights | admins |
 
-**Ranking method:** Borda count. On each list, a cake at position *i* earns *n − i* points. Cakes a user hasn't ranked yet (e.g. new ones) share the bottom places. Each user's points are scaled to 0–100 and then averaged.
+**Ranking method:** Borda count, per place. On each list, a food at position *i* earns *n − i* points. Foods a user hasn't ranked yet (e.g. new ones) share the bottom places. Each user's points are scaled to 0–100 and then averaged. Tiers: S ≥ 80, A ≥ 60, B ≥ 40, C ≥ 20, D below.
+
+**Data:** `places/{id}`, foods in `pastries/{id}` (with `placeId`), and one `rankings/{email}` doc per user with `orders: { placeId: [foodIds] }`. Foods without a `placeId` and the old single `order` field belong to the "Kolači" place (id `kolaci`), so data from the first version keeps working.
 
 **Security:** login is Google only, so there are no passwords and Google handles bot protection. Anyone can sign in, but only emails an admin has added can rank, and every write is checked server-side by `firestore.rules`.
 

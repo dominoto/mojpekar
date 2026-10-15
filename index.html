@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Moj Pekar — rang lista kolača</title>
+  <title>Moj Pekar — rang liste</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
@@ -14,19 +14,10 @@
   <main>
     <section class="hero">
       <p class="eyebrow">Svježe iz pećnice</p>
-      <h1>Zbirna rang lista kolača</h1>
-      <p class="lead" id="summary">Mijesimo rezultate…</p>
+      <h1>Naše rang liste</h1>
+      <p class="lead">Odaberi mjesto i pogledaj što ekipa najviše voli.</p>
     </section>
-    <section id="podium" class="podium"></section>
-    <section class="card" id="table-card" hidden>
-      <h2>Cijela lista</h2>
-      <div class="table-wrap">
-        <table class="rank-table">
-          <thead><tr><th>#</th><th>Kolač</th><th>Bodovi</th><th title="Koliko ga je kolega stavilo na 1. mjesto">🥇</th></tr></thead>
-          <tbody id="rows"></tbody>
-        </table>
-      </div>
-    </section>
+    <section id="places" class="place-grid"></section>
   </main>
   <footer>Moj Pekar · ispečeno s ljubavlju 🍞</footer>
   <script type="module" src="js/pocetna.js"></script>
