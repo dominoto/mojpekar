@@ -252,7 +252,8 @@ label.check { display: flex !important; align-items: center; gap: .5rem; font-we
 
 .form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 .emoji-field { width: 6rem; }
-.emoji-field input { text-align: center; font-size: 1.3rem; }
+.emoji-field input { width: 100%; min-width: 0; text-align: center; font-size: 1.3rem; }
+.form-row .grow input { width: 100%; }
 
 /* ---------- obavijesti ---------- */
 .toast {
